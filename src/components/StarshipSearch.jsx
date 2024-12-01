@@ -10,9 +10,10 @@ const StarshipSearch = (props) => {
         setStarship('');
     };
 
+    console.log(starship);
+
     return (
         <section>
-            <h2>Search</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="starship">Enter a starship name: </label>
                 <input 

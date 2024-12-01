@@ -13,12 +13,14 @@ const App = () => {
   const fetchData = async (starship) => {
     try {
       const data = await fetchStarship(starship);
+      console.log('Fetched Data', data);
       const newStarshipState = {
-        name: data.name,
-        starship_class: data.starship_class,
-        manufacturer: data.manufacturer,
-        model: data.model,
+        name: data.results[0].name,
+        starship_class: data.results[0].starship_class,
+        manufacturer: data.results[0].manufacturer,
+        model: data.results[0].model,
       };
+      console.log('New name', data.results);
   setStarship(newStarshipState);
 } catch (error) {
   console.error('Error fetching starship', error);

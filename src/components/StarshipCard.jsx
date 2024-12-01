@@ -11,3 +11,6 @@ export default function StarshipCard( {name, starship_class, manufacturer, model
 );
 }
 
+
+
+
