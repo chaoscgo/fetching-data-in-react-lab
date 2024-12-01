@@ -10,8 +10,6 @@ const StarshipSearch = (props) => {
         setStarship('');
     };
 
-    console.log(starship);
-
     return (
         <section>
             <form onSubmit={handleSubmit}>
