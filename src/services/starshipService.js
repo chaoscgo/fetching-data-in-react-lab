@@ -4,11 +4,14 @@ const index = async () => {
     try {
       const res = await fetch(BASE_URL);
       const data = await res.json();
+      console.log(data.name);
       return data;
     } catch (err) {
       console.log(err);
     }
   };
+
+
 
 // const showStarship = async (starship) => {
 //     try {

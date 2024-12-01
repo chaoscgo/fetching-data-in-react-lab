@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { index as fetchStarships} from './services/starshipService';
 // import StarshipSearch from './components/StarshipSearch';
-// import StarshipList from './components/StarshipList';
+import StarshipList from './components/StarshipList';
 
 
 const App = () => {
@@ -14,8 +14,8 @@ const App = () => {
       const newStarshipsState = data.results.map((starship) => ({
         name: starship.name,
         starships_class: starship.starship_class,
-       starships_manufacturer: starship.manufacturer,
-       starships_model: starship.model,
+        manufacturer: starship.manufacturer,
+        model: starship.model,
     }));
     setStarships(newStarshipsState);
     } catch (error) {
@@ -23,12 +23,18 @@ const App = () => {
     }
   };
 
-  console.log(starships);
+  // console.log(starships);
 
   useEffect(() => {
     fetchDefaultData();
   }, []);
 
+  return (
+    <>
+    <h1>Star Wars</h1>
+    <StarshipList starships={starships} />
+    </>
+  )
 }
 
 export default App
