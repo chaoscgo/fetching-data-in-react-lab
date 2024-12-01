@@ -1,20 +1,20 @@
-// import StarshipCard from './StarshipCard';
+import StarshipCard from './StarshipCard';
 
-const StarshipList = (props) => {
+const StarshipList = ( { starships }) => {
     return (
-        <>
-        <h1>List of Starships</h1>
-        <ul>
-            {props.starships.map((starship, index) => (
-                <li key={index}>
-                <p>Name: {starship.name}</p>
-                <p> Class: {starship.starships_class}</p>
-                <p> Manufacturer: {starship.manufacturer}</p>
-                <p> Model: {starship.model}</p>
-                </li>
+        <div>
+            {starships.map((starship, index) => (
+                <div key={index}>
+                <StarshipCard 
+                  name={starship.name}
+                  starship_class={starship.starship_class}
+                  manufacturer={starship.manufacturer}
+                  model={starship.model}
+               />
+            </div>
             ))}
-        </ul>
-    </>
+        </div>
+ 
     )
 }
 

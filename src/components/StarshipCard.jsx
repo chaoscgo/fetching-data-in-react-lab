@@ -1,10 +1,13 @@
 
 
-// export default function StarshipCard(props) {
-//     <>
-//     <h1>{props.name}</h1>
-//     <li> {props.starship_class}</li>
-//     <li> {props.starship_manufacturer}</li>
-//     <li> {props.starship.model}</li>
-//     </>
-// }
+export default function StarshipCard( {name, starship_class, manufacturer, model }) {
+    return (
+    <>
+        <p>Name: {name}</p>
+        <p> Class: {starship_class}</p>
+       <p> Manufacturer: {manufacturer}</p>
+      <p> Model: {model}</p>
+    </>
+);
+}
+

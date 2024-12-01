@@ -13,7 +13,7 @@ const App = () => {
       const data = await fetchStarships();
       const newStarshipsState = data.results.map((starship) => ({
         name: starship.name,
-        starships_class: starship.starship_class,
+        starship_class: starship.starship_class,
         manufacturer: starship.manufacturer,
         model: starship.model,
     }));
