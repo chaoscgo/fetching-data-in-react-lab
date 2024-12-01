@@ -11,8 +11,9 @@ const StarshipList = ( { starships }) => {
                   manufacturer={starship.manufacturer}
                   model={starship.model}
                />
-            </div>
-            ))}
+               </div>
+            )
+            )}
         </div>
  
     )

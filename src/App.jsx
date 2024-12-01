@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { index as fetchStarships} from './services/starshipService';
 // import StarshipSearch from './components/StarshipSearch';
 import StarshipList from './components/StarshipList';
+import './App.css';
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
   return (
     <>
     <h1>Star Wars</h1>
+    <h2>Starship Count: {starships.length}</h2>
     <StarshipList starships={starships} />
     </>
   )
