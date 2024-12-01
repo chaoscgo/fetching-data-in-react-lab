@@ -13,18 +13,18 @@ const index = async () => {
 
 
 
-// const showStarship = async (starship) => {
-//     try {
-//       const queryString = `search=${starship}`;
-//       const res = await fetch(BASE_URL + queryString);
-//       const data = await res.json();
-//       console.log('Starship you requested:', data);
-//       return data;
-//     } catch (err) {
-//       console.log(err);
-//     }
-//   };
+const show = async (starship) => {
+    try {
+      const queryString = `?search=${starship}`;
+      const res = await fetch(BASE_URL + queryString);
+      const data = await res.json();
+      console.log('Starship you requested:', data);
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
-//   export { showStarship };
+  export { show };
 
   export { index };

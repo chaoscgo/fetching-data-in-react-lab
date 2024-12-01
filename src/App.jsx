@@ -1,13 +1,29 @@
 import { useState, useEffect } from 'react';
-import { index as fetchStarships} from './services/starshipService';
-// import StarshipSearch from './components/StarshipSearch';
+import { index as fetchStarships, show as fetchStarship} from './services/starshipService';
+import StarshipSearch from './components/StarshipSearch';
 import StarshipList from './components/StarshipList';
 import './App.css';
 
 
 const App = () => {
 
+  const [starship, setStarship] = useState({});
   const [starships, setStarships] = useState([]);
+
+  const fetchData = async (starship) => {
+    try {
+      const data = await fetchStarship(starship);
+      const newStarshipState = {
+        name: data.name,
+        starship_class: data.starship_class,
+        manufacturer: data.manufacturer,
+        model: data.model,
+      };
+  setStarship(newStarshipState);
+} catch (error) {
+  console.error('Error fetching starship', error);
+}
+};
 
   const fetchDefaultData = async () => {
     try {
@@ -20,11 +36,9 @@ const App = () => {
     }));
     setStarships(newStarshipsState);
     } catch (error) {
-      console.error('Error', error);
+      console.error('Error fetching list of starships', error);
     }
   };
-
-  // console.log(starships);
 
   useEffect(() => {
     fetchDefaultData();
@@ -34,7 +48,8 @@ const App = () => {
     <>
     <h1>Star Wars</h1>
     <h2>Starship Count: {starships.length}</h2>
-    <StarshipList starships={starships} />
+    <StarshipSearch fetchData={fetchData} />
+    <StarshipList starships={starships} starship={starship} />
     </>
   )
 }
